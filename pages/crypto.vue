@@ -39,7 +39,7 @@
   const priceChartData = ref(null);
   const chartCanvas = ref(null);
   
-  // Функция для получения списка криптовалют
+  
   const fetchCryptos = async () => {
     try {
       const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1');
@@ -123,17 +123,15 @@
     });
   });
   
-  // Выбор криптовалюты для отображения
+  
   const selectCrypto = (crypto) => {
     fetchCryptoDetails(crypto.id);
   };
   
-  // Загружаем данные при монтировании компонента
   onMounted(() => {
     fetchCryptos();
   });
   
-  // Когда данные графика обновляются, рисуем график
   watch(priceChartData, drawChart);
   </script>
   

@@ -6,7 +6,6 @@
           <NuxtLink to="/" class="text-white text-3xl font-bold hover:text-gray-300 transition duration-200">iRecom</NuxtLink>
         </div>
         
-        <!-- Центрированное меню с часами -->
         <div class="flex-grow flex justify-center items-center">
           <p class="text-white text-xl" v-if="time">{{ time }}</p>
         </div>
@@ -58,22 +57,20 @@
   const router = useRouter();
   const time = ref('');
   
-  // Функция для обновления времени каждую секунду
   const updateTime = () => {
     const currentTime = new Date();
     time.value = currentTime.toLocaleTimeString();
   };
   
-  // Обновление времени каждую секунду
   onMounted(() => {
     setInterval(updateTime, 1000);
-    updateTime(); // Обновить сразу при монтировании
+    updateTime(); 
   });
   
   const handleLogout = () => {
-    // Логика для выхода (например, удаление данных о пользователе)
+    
     console.log('User logged out');
-    router.push('/login'); // Перенаправление на страницу входа
+    router.push('/login'); 
   };
   </script>
   

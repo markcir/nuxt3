@@ -31,7 +31,7 @@
   
   onMounted(() => {
     setTimeout(() => {
-      // Simulating new purchases
+      
       purchases.value.unshift(
         { customer: 'Emma Davis', details: 'Bought a Camera', date: 'Dec 23, 2024', isNew: true }
       );

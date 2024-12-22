@@ -65,8 +65,8 @@
     stats.forEach((stat) => {
       let start = 0;
       const end = stat.value;
-      const duration = 2000; // Duration of animation in milliseconds
-      const stepTime = 50; // Interval between updates in milliseconds
+      const duration = 2000; 
+      const stepTime = 50; 
       const steps = Math.ceil(duration / stepTime);
       const increment = Math.ceil(end / steps);
   

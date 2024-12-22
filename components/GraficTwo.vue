@@ -2,19 +2,19 @@
     <div class="income-chart">
       <h2 class="title">Income for the Last 6 Months</h2>
       <svg viewBox="0 0 600 300" class="chart">
-        <!-- Осевые линии -->
+        
         <line x1="50" y1="250" x2="550" y2="250" class="axis"></line>
         <line x1="50" y1="250" x2="50" y2="50" class="axis"></line>
   
-        <!-- Метки месяцев -->
+        
         <text v-for="(month, index) in months" :key="index" :x="getX(index)" y="270" class="label">
           {{ month }}
         </text>
   
-        <!-- Линия графика -->
+        
         <path :d="linePath" class="line" />
   
-        <!-- Точки на графике -->
+        
         <g v-for="(point, index) in dataPoints" :key="index">
           <circle
             :cx="getX(index)"
@@ -22,7 +22,7 @@
             r="5"
             class="point"
           />
-          <!-- Значения доходов -->
+          
           <text
             :x="getX(index)"
             :y="getY(point) - 10"
@@ -39,20 +39,20 @@
   <script setup>
   import { ref, onMounted } from "vue";
   
-  // Данные доходов по месяцам
-  const dataPoints = ref([3000, 4500, 5200, 4900, 6000, 7000]); // Пример доходов
+  
+  const dataPoints = ref([3000, 4500, 5200, 4900, 6000, 7000]); 
   const months = ref(["July", "August", "September", "October", "November", "December"]);
   
-  // Анимация прорисовки линии
+  
   const linePath = ref("");
   
-  // Вычислить координату X на основе индекса
+  
   const getX = (index) => 50 + (500 / (dataPoints.value.length - 1)) * index;
   
-  // Вычислить координату Y на основе значения
+  
   const getY = (value) => 250 - ((value - 2000) / 6000) * 200;
   
-  // Преобразовать точки в строку пути
+  
   const generateLinePath = () => {
     return dataPoints.value
       .map((point, index) =>
@@ -68,7 +68,7 @@
   
     const animate = () => {
       linePath.value = path.substring(0, currentLength);
-      currentLength += 5; // Скорость прорисовки
+      currentLength += 5; 
       if (currentLength <= totalLength) {
         requestAnimationFrame(animate);
       }

@@ -3,7 +3,6 @@
   <div class="eventy-container">
     <h2 class="title">Eventy: Manage Your Events</h2>
 
-    <!-- Форма добавления нового события -->
     <form @submit.prevent="addEvent" class="event-form">
       <input
         v-model="newEvent.name"
@@ -27,7 +26,6 @@
       <button type="submit" class="event-btn">Add Event</button>
     </form>
 
-    <!-- Список событий -->
     <div v-if="events.length > 0" class="events-list">
       <div
         v-for="(event, index) in events"
@@ -45,7 +43,6 @@
       </div>
     </div>
 
-    <!-- Детали выбранного события -->
     <transition name="fade">
       <div v-if="selectedEvent" class="event-details">
         <h3>{{ selectedEvent.name }}</h3>
@@ -69,7 +66,6 @@ const newEvent = ref({
 const events = ref([]);
 const selectedEvent = ref(null);
 
-// Добавление нового события
 const addEvent = () => {
   if (newEvent.value.name && newEvent.value.date && newEvent.value.description) {
     events.value.push({ ...newEvent.value });
@@ -79,20 +75,16 @@ const addEvent = () => {
   }
 };
 
-// Показ деталей события
 const showEventDetails = (event) => {
   selectedEvent.value = event;
 };
 
-// Закрытие деталей события
 const closeDetails = () => {
   selectedEvent.value = null;
 };
 
-// Форматирование даты
 const formatDate = (date) => new Date(date).toLocaleDateString();
 
-// Получение инициалов для аватара
 const getInitials = (name) => {
   const words = name.split(" ");
   return words.map((w) => w[0]).join("").toUpperCase();

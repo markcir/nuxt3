@@ -2,9 +2,8 @@
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   
-  const { login, password } = query; // Для простоты предполагаем, что передается login и password через GET запрос.
+  const { login, password } = query; 
   
-  // Эмуляция проверки логина
   const validLogin = "admin";
   const validPassword = "password";
 

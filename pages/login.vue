@@ -30,7 +30,7 @@ const handleSubmit = async () => {
 
     if (response.token === loginToBase64()) {
       sessionStorage.setItem(SESSION_STORAGE_AUTH_KEY, response.token);
-      await router.push("/"); // Перенаправление на главную страницу после успешного входа
+      await router.push("/"); 
     } else {
       error.value = true;
     }
@@ -77,7 +77,6 @@ definePageMeta({
   </template>
   
   <style scoped>
-  /* Custom styles for modern black-and-green theme */
   .bg-black {
     background-color: #1a1a1a;
   }
